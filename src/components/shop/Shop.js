@@ -1,30 +1,20 @@
-import ProductsList from './ProductsList'
+import { Link } from 'react-router-dom';
+
+import { array } from '../assests/assets';
 
 function Shop() {
-  function importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
-  }
-  
-  const images = importAll(require.context('../../images', false, /\.(png|jpe?g|svg)$/));
-  
-  var array = []
-  var i = 0;
-  
-  for (var key in images) {
-    var name = images[key].default.replace('/static/media/', '')
-    name = name.replace('_', ' ')
-    name = name.substring(0, name.length - 13).toUpperCase()
-    array.push({id: i, link: images[key].default, name})
-    i++
-  }
-
   return (
-    <div>
-      <ProductsList 
-        array={array} 
-      />
+    <div id='products'>
+      {array.map(el => {
+        return (
+          <div className='product-list'>
+            <Link to={`/shop/${el.name}`}>
+              <img src={el.link} />
+              <h3>{el.name}</h3>
+            </Link>
+          </div>
+        )
+      })}
     </div>
   )
 }
