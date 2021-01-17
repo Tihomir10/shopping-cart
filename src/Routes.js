@@ -4,6 +4,7 @@ import Homepage from './components/Homepage';
 import Shop from './components/shop/Shop';
 import NavBar from './components/Navbar';
 import Cart from './components/Cart';
+import Product from './components/shop/Product'
 import './index';
 
 function Routes() {
@@ -20,6 +21,7 @@ function Routes() {
         <Route exact path='/cart'>
           <Cart />
         </Route>
+        <Route path='/shop/:name' component={Product} />
       </Switch>
     </BrowserRouter>
   )
