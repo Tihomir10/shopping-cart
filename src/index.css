@@ -9,14 +9,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./images/strawberry-background.jpg');
   min-height: 100%;
-  background-size: cover;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  height: 100%;
 }
 
 ul {
@@ -41,4 +43,43 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+#products {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.product-list {
+  margin: 3rem 0;
+  text-align: center;
+  width: 25%;
+}
+
+#product {
+  display: flex;
+  justify-content: space-between;
+  height: 90%;
+  margin: 1rem 3rem;
+  text-align: center;
+  width: 90%;
+}
+
+#product-info {
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 60%;
+}
+
+#div-img {
+  width: 40%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
 }
