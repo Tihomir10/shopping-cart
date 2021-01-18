@@ -17,24 +17,33 @@ function Routes() {
     const item = array.filter(obj => {
       return obj.id == event.target.id;
     })
-    var cartItem = item[0]
+    var cartItem = item[0];
+
     
     for(var i = 0; i < cart.length; i++) {
       if (cart[i].name == cartItem.name) {
-        setCart(
-          cart.map(
-            (item) => (item.name === cartItem.name ? { ...item, qty: item.qty + 1 } : item)
-          )
-        );
+        addQuantity(cartItem);
         return
       }
     }
+    
+    updateCart(cartItem);
+  }
 
+  const updateCart = (obj) => {
     setCart([...cart, {
       qty: 1,
-      name: cartItem.name,
-      price: cartItem.price
+      name: obj.name,
+      price: obj.price
     }])
+  }
+
+  const addQuantity = (obj) => {
+    setCart(
+      cart.map(
+        (item) => (item.name === obj.name ? { ...item, qty: item.qty + 1 } : item)
+      )
+    )
   }
   
   return (
