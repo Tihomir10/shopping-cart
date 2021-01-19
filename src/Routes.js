@@ -46,6 +46,10 @@ function Routes() {
       )
     )
   }
+
+  const deleteItem = (event) => {
+    setCart(cart.filter((item) => item.name !== event.target.id));
+  }
   
   return (
     <BrowserRouter>
@@ -58,7 +62,7 @@ function Routes() {
           <Shop />
         </Route>
         <Route exact path='/cart'>
-          <Cart cart={cart} />
+          <Cart cart={cart} deleteItem={deleteItem} />
         </Route>
         <Route 
           path='/shop/:name'  
