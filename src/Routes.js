@@ -47,7 +47,7 @@ function Routes() {
     )
   }
 
-  const deleteItem = (event) => {
+  const removeItem = (event) => {
     setCart(cart.filter((item) => item.name !== event.target.id));
   }
   
@@ -62,7 +62,7 @@ function Routes() {
           <Shop />
         </Route>
         <Route exact path='/cart'>
-          <Cart cart={cart} deleteItem={deleteItem} />
+          <Cart cart={cart} removeItem={removeItem} />
         </Route>
         <Route 
           path='/shop/:name'  

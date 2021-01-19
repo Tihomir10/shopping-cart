@@ -1,7 +1,6 @@
 function Cart(props) {
   if (props.cart[0]) {
     const sum = props.cart.reduce((a, {total}) => a + total, 0)
-    console.log(sum)
     return (
       <div>
         <div className='container'>
@@ -9,7 +8,7 @@ function Cart(props) {
             return (
               <div className='cart-product-info'>
                 <h4>{obj.name} x {obj.qty} - {obj.total}$</h4>
-                <button className='btn btn-danger'>Remove from Cart</button>
+                <button id={obj.name} onClick={props.removeItem} className='btn btn-danger'>Remove from Cart</button>
               </div>
             )
           })}
