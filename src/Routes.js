@@ -34,14 +34,15 @@ function Routes() {
     setCart([...cart, {
       qty: 1,
       name: obj.name,
-      price: obj.price
+      price: obj.price,
+      total: obj.price
     }])
   }
 
   const addQuantity = (obj) => {
     setCart(
       cart.map(
-        (item) => (item.name === obj.name ? { ...item, qty: item.qty + 1 } : item)
+        (item) => (item.name === obj.name ? { ...item, qty: item.qty + 1, total: item.total + item.price } : item)
       )
     )
   }
@@ -56,7 +57,9 @@ function Routes() {
         <Route exact path='/shop'>
           <Shop />
         </Route>
-        <Route exact path='/cart' component={Cart} />
+        <Route exact path='/cart'>
+          <Cart cart={cart} />
+        </Route>
         <Route 
           path='/shop/:name'  
           render={(props) => (
