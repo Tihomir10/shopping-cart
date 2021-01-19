@@ -90,9 +90,11 @@ img {
 
 .cart-product-info {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 3rem;
 }
 
-h3 {
+h2, h3 {
+  margin: 2rem;
   text-align: center;
 }
