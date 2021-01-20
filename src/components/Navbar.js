@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-function NavBar() {
+function NavBar(props) {
   return (
     <nav className='navbar'>
       <ul>
@@ -11,7 +11,12 @@ function NavBar() {
           <Link to='/shop'>Shop</Link>
         </li>
         <li class="nav-item">
-          <Link to='/cart'>Cart</Link>
+          <Link to='/cart'>
+            <div>
+              <i class="fas fa-shopping-cart"></i>
+              <span>{props.totalQty}</span>
+            </div>
+          </Link>
         </li>
       </ul>
     </nav>
