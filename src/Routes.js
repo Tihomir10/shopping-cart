@@ -51,9 +51,12 @@ function Routes() {
     setCart(cart.filter((item) => item.name !== event.target.id));
   }
   
+  const totalQty = cart.reduce((a, {qty}) => a + qty, 0)
+    
+
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar totalQty={totalQty} />
       <Switch>
         <Route exact path='/'>
           <Homepage />
