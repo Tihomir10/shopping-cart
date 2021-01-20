@@ -98,3 +98,13 @@ h2, h3 {
   margin: 2rem;
   text-align: center;
 }
+
+span {
+  font-size: large;
+  vertical-align: sub;
+  margin-left: 0.2rem;
+}
+
+.order-btns > button, a {
+  margin: 0.5rem;
+}
