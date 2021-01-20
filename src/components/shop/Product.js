@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { array } from '../assests/assets';
 
 function Product(props) {
@@ -14,8 +16,12 @@ function Product(props) {
       <div id='product-info'>
         <h3>{item[0].name}</h3>
         <h5>{item[0].price}$</h5>
-        <button id={item[0].id} className='btn btn-primary' onClick={props.addItem}>Add to Cart</button>
-        <button className='btn btn-primary'>Copmplete Order</button>
+        <div className='order-btns'>
+          <button id={item[0].id} className='btn btn-primary' onClick={props.addItem}>Add to Cart</button>
+          <Link to='/cart'>
+            <button className='btn btn-primary'>Complete Order</button>
+          </Link>
+        </div>
       </div>
     </div>
   )
